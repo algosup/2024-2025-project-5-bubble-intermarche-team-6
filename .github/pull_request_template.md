@@ -7,7 +7,7 @@ assignees: Boppalex, EnzoGuillouche
 
 ---
 
-# Pull Request Purpose
+This Pull Request stands for...
 
 ## Description
 
@@ -26,3 +26,5 @@ What types of changes you made in this pull request?
 ## Further comments
 
 If this is a relatively large or complex change, kick off the discussion by explaining why you chose the solution you did and what alternatives you considered, etc...
+
+If anything is wrong while you're reviewing, please add a comment to the Pull Request review and request changes.
