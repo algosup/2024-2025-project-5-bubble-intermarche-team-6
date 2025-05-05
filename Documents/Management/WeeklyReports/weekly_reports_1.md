@@ -1,4 +1,5 @@
-## Team 5 – Weekly Report: Intermarché Project  
+# Team 6 – Weekly Report: Intermarché Project
+
 ## Week 1 – April 22 to April 25, 2025  
 
 | Information    | Details           |
