@@ -15,6 +15,10 @@
   - [III. GitHub Issues \& Pull Request](#iii-github-issues--pull-request)
     - [A. GitHub Issues](#a-github-issues)
     - [B. Pull Request](#b-pull-request)
+  - [IV. Testing Procedures](#iv-testing-procedures)
+    - [A. Test Execution](#a-test-execution)
+      - [1. Test Cases](#1-test-cases)
+      - [2. Order of Testing](#2-order-of-testing)
 
 </details>
 
@@ -142,3 +146,35 @@ The adherence to coding standards is not mentioned here as developers will work 
 Template of **PR**:
 
 <img width="750" alt="Screenshot 2025-05-12 at 10 03 54" src="https://github.com/user-attachments/assets/84c08500-38b6-4d4f-8bce-fa7d0a76dd5b" />
+
+## IV. Testing Procedures
+
+### A. Test Execution
+
+#### 1. Test Cases
+
+For each requirement, system feature, or suggestion to be tested, the tester will execute a set of pre-defined test cases.
+Each test case will have a series of actions and expected results.
+As each action is performed, the results are evaluated.
+If the observed results are equal to the expected results, a checkmark ✅ is placed in the “Pass/Fail” column.
+If the observed results differ from the expected results, a checkmark ❌ is placed in the “Pass/Fail” column.
+
+#### 2. Order of Testing
+
+The order of testing will be driven primarily by the test order. Within each test, the following order of testing will be followed:
+
+- **Test 1**: Navigation & Language
+  - A. Ensure that the application can be navigated through.
+  - B. Verify that there is no spelling errors.
+
+- **Test 2**: Input
+  - A. Ensure users can input dishes, wines and cheeses in desired fields.
+  - B. Validate inputs can be processed by the application.
+
+- **Test 3**: Process Suggestions
+  - A. Verify processing of inputs through the system.
+  - B. Confirm the correctness of suggestions and computation logic.
+
+- **Test 4**: Output Validation
+  - A. Ensure final outputs conform to expected outputs (e.g wine if users search for wines).
+  - B. Compare actual results with predefined expected values.
