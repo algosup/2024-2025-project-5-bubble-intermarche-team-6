@@ -101,13 +101,19 @@ GitHub Issues are used to track, manage, and resolve defects or enhancements. Th
    - After verification and testing, the issue is marked as resolved and closed by the QA.
    - If the issue persists, it should be reopened and assigned for further investigation.
 
+Moreover, Issues **related to deliverables** have been created.
+
+They act as **milestones**: once we finish a document for instance, and it has been reviewed / merged, we can close the issue related to that specific document.
+
+<img width="750" alt="Screenshot 2025-05-12 at 10 00 45" src="https://github.com/user-attachments/assets/deff691c-591e-4130-afc6-fe491f96bf02" />
+
 Template of **document issue**:
 
+<img width="750" alt="Screenshot 2025-05-12 at 10 02 09" src="https://github.com/user-attachments/assets/370598ae-eeb0-466b-bd77-d14140715fba" />
 
+Template of **bug issue**:
 
-Template of **code issue**:
-
-
+<img width="750" alt="Screenshot 2025-05-12 at 10 01 44" src="https://github.com/user-attachments/assets/2e788591-68b9-44d7-b0c6-85b36e704d17" />
 
 ### B. Pull Request
 
@@ -135,5 +141,4 @@ The adherence to coding standards is not mentioned here as developers will work 
 
 Template of **PR**:
 
-
-
+<img width="750" alt="Screenshot 2025-05-12 at 10 03 54" src="https://github.com/user-attachments/assets/84c08500-38b6-4d4f-8bce-fa7d0a76dd5b" />
