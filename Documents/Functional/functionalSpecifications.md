@@ -178,12 +178,217 @@ Antoine receives a cheese pairing that complements his wine and expands his tast
 
 ## 3. Functional Requirements
 
-To better understand how the app works, the diagram below presents a simplified view of the decision-tree flow that users follow when interacting with the Wine & Cheese Matcher. 
+### 3.1 Global User Flow
 
-*(As the diagram is quite detailed, it is recommended to zoom in for better readability.)*
+The flowchart below provides an overview of the app’s core decision-making logic, from homepage to final recommendation.
 
 ![flowchart](img/flowchart.png)
 
-The application must support the following core features:
 
+*(As the diagram is quite detailed, it is recommended to zoom in for better readability.)*
+
+### 3.2. Visual Design
+
+To create our mockups, we used Figma, a collaborative design tool that allows for easy sharing and feedback. The mockups are designed to be visually appealing and user-friendly, with a focus on simplicity and ease of navigation.
+
+Here is the link to the Figma file: [Figma Mockups](https://www.figma.com/design/wQ7NaObzJ04TrvweCbxS5Z/Intermarch%C3%A9?node-id=0-1&t=2GPKpLDiJrA0HViY-1)
+
+#### 3.2.1 Color Palette
+
+The color palette was designed to balance brand recognition, visual clarity, and mobile usability — especially for in-store browsing scenarios.
+
+##### Primary Colors
+
+- **Bright Red**<span style="display:inline-block;width:12px;height:12px;background:#FF0000;border:1px solid #ccc;border-radius:2px;margin-left:6px;"></span> **(#FF0000)**  
+Chosen as the primary accent color, used for key interactive elements such as the active menu icon or call-to-action buttons. While our initial intention was to use **Intermarché’s official red**, we found that it did not render well across all devices and backgrounds. #FF0000 offered stronger contrast, better visibility on white and grey backgrounds, and preserved the strong, energetic identity associated with the Intermarché brand.
+
+- **Dark Grey**<span style="display:inline-block;width:12px;height:12px;background:#868686;border:1px solid #ccc;border-radius:2px;margin-left:6px;"></span> **(#868686)**  
+Used for headers, borders, and the top bar background. This neutral tone provides depth and separates UI elements without overwhelming the design.
+
+##### Neutrals & Backgrounds
+
+- **White**<span style="display:inline-block;width:12px;height:12px;background:#FFFFFF;border:1px solid #ccc;border-radius:2px;margin-left:6px;"></span> **(#FFFFFF)**  
+Serves as the primary background to ensure maximum contrast with product images and text.
+
+- **Light Grey**<span style="display:inline-block;width:12px;height:12px;background:#DEDEDE;border:1px solid #ccc;border-radius:2px;margin-left:6px;"></span> **(#DEDEDE)**  
+Used for inactive elements, search bars, and separators to maintain visual structure without adding clutter.
+
+##### Accent Colors
+
+- **Gold-Yellow**<span style="display:inline-block;width:12px;height:12px;background:#E9BC08;border:1px solid #ccc;border-radius:2px;margin-left:6px;"></span> **(#E9BC08)**  
+Used for the “favorite” star icon. It evokes the idea of personal curation and premium selection, tying into the gourmet nature of the app.
+
+The final palette ensures a clean, professional appearance while optimizing for **legibility, usability**, and **emotional impact**, particularly in a retail environment.
+
+
+
+### 3.3 Homepage & Navigation
+
+The homepage is the user’s first touchpoint with the app and serves as the launchpad for product discovery. It allows users to search for cheeses or wines, view best-selling items, and navigate to core features like Favorites and Settings.
+
+#### Visual Structure
+
+The screen is divided into three key zones:
+
+1. **Search Bar (Top)**
+   - A prominent input field labeled “Rechercher un produit...” allows users to search for a cheese or wine by name.
+   - The search field includes a magnifying glass icon for intuitive interaction.
+   - Designed to be large and accessible on mobile screens.
+
+2. **Best Sellers Section (Middle)**
+   - Below the search bar, a heading “Meilleures ventes” introduces a curated product list.
+   - Two filter buttons (“Fromages” and “Vins”) let the user toggle the product type.
+     - When “Fromages” is active, the list shows best-selling cheeses.
+     - When “Vins” is active, the list displays top-selling wines.
+   - Each product is shown in a horizontal card layout:
+     - Product image
+     - Name
+     - Tags (e.g., “Onctueux”, “Délicat”, “Fruité”, etc.)
+     - Price (€/kg for cheese, €/bottle for wine)
+     - A star icon that allows users to **favorite** the item
+
+3. **Bottom Navigation Bar**
+   - Fixed and accessible at all times.
+   - Includes three main actions:
+     - 🏠 **Menu**: Returns to the homepage (highlighted in red when active)
+     - ⭐ **Favoris**: Takes users to their saved favorites
+     - ⚙️ **Paramètres**: Opens the settings screen
+
+> [!CAUTION]
+> The following visual will be used as a reference for the homepage design. The language will be in French, because the mockups are sent to the client for review/feedback. The final version will be in both French and English, as per the requirements.
+
+![img](img/homepage.png)
+
+#### Functional Expectations
+
+- The homepage must always reflect the most recent product data (e.g., stock, price).
+- Tapping a product card should lead to a **Product Detail View**.
+- The “Fromages” and “Vins” buttons act as **client-side filters**, not page reloads.
+- Favoriting an item should persist across sessions and be retrievable from the “Favoris” tab.
+- All elements must be optimized for mobile — spacing, font size, and tap zones must meet mobile UX standards.
+
+#### Accessibility & Language
+
+- The interface must be fully available in **French and English**.
+- Language selection will be handled in the Settings page.
+- Product tags (like “Délicat” or “Corsé”) will be used to enhance the user experience and help users find products that match their preferences. Users can filter products based on these tags, and do searches using them.
+
+#### Example User Flow
+
+1. A user opens the app and sees the homepage with “Fromages” preselected.
+2. They browse the list and tap the star next to “Comté 18 mois” to add it to favorites.
+3. They tap “Vins” to switch the list and view wine suggestions.
+4. They tap a wine to view more details and matching suggestions.
+
+### 3.4 Product Detail View
+
+This screen provides users with an in-depth look at a selected product (wine or cheese), including its characteristics, description, and pairing suggestions. It’s a key part of the user journey, especially for those making in-store decisions or exploring expert recommendations.
+
+#### Visual Structure
+
+1. **Header Zone**
+   - A back arrow allows the user to return to the previous screen.
+   - A star icon in the top-right corner lets the user favorite the item for quick access later.
+   - The background bar is styled in grey to visually separate the header from the content area.
+
+2. **Product Overview**
+   - Large product image (e.g. wine bottle or cheese block)
+   - Product name in bold (e.g. *Vin Rosé IGP Alpilles*)
+   - Attribute tags (e.g. “Délicat”, “Frais”) displayed as rounded badges
+   - Quick facts:
+     - **Price** (€/kg for cheese, €/bottle for wine)
+     - **Ideal usage** (e.g. “Idéal pour : Apéritifs”)
+     - **Volume and alcohol level** for wines (e.g. “12.5% vol, 0,75l”)
+
+3. **Description Section**
+   - A paragraph of rich text that tells the story of the product:
+     - Origin or brand
+     - Flavor profile
+     - Recommended occasions
+     - Food pairings or traditions
+
+4. **Pairing Recommendations**
+   - Section title: **"Se marie bien avec"**
+   - Horizontally scrollable card layout featuring matching items:
+     - Cheese or dish image
+     - Name of the item (e.g. “Camembert”, “Ratatouille”)
+     - Optional tags or notes (if applicable)
+
+5. **Bottom Navigation Bar**
+   - Consistent with other screens:
+     - **Menu**, **Favoris**, **Paramètres**
+
+> [!CAUTION]
+> The following visual will be used as a reference for the product detail view design. The language will be in French, because the mockups are sent to the client for review/feedback. The final version will be in both French and English, as per the requirements.
+
+![img](img/product.png)
+
+
+#### Functional Expectations
+
+- Users must be able to **favorite** or **unfavorite** the product by tapping the star icon.
+- Clicking on a pairing suggestion (e.g., “Camembert”) should open its own product detail view.
+- Product information (description, tags, pairings) should be **fetched dynamically** based on the selected item.
+- Tags and descriptions must **adapt based on language selection** (EN/FR).
+- Descriptions must be **scrollable** if they exceed the screen height.
+
+
+#### Example User Flow
+
+1. A user taps “Vin Rosé IGP Alpilles” from the homepage wine list.
+2. They are redirected to the Product Detail View.
+3. They read about the wine’s characteristics and see that it pairs well with Camembert and Ceviche.
+4. They tap the star to add it to favorites.
+5. They scroll horizontally to view all pairing suggestions.
+6. They tap “Camembert” to learn more about it.
+
+### 3.5 Favorites Page
+
+The “Favoris” page allows users to view all previously saved items — both cheeses and wines — that they marked with the ⭐ icon. It acts as a personal shortlist for users who want to revisit their selections, especially when they’re actively shopping or planning meals.
+
+#### Visual Structure
+
+1. **Header**
+   - Title displayed at the top of the screen: **“Mes favoris”**
+   - Clean white background for consistency with other pages
+
+2. **Favorites List**
+   - Items are displayed as vertical cards, consistent with the homepage
+   - Each card includes:
+     - Product image (left-aligned)
+     - Product name (bold, top-right)
+     - Attribute tags (e.g. “Délicat”, “Corsé”) shown below the name
+     - Contextual description:
+       - For wine: “Idéal pour : [Apéritifs / Repas / etc.]”
+       - For cheese: none or optional pairing note
+     - Price (€/kg for cheese, €/bottle for wine) aligned bottom-right
+     - A filled gold ⭐ icon in the top-right corner to indicate it’s favorited
+
+3. **Bottom Navigation Bar**
+   - Highlights the **“Favoris”** tab in red when active
+   - Users can switch to **Menu** or **Paramètres** at any time
+
+> [!CAUTION]
+> The following visual will be used as a reference for the favorites page design. The language will be in French, because the mockups are sent to the client for review/feedback. The final version will be in both French and English, as per the requirements.
+
+![img](img/favorites.png)
+
+#### Functional Behavior
+
+- The list must include **both wines and cheeses**, displayed in the order they were favorited (most recent first).
+- Tapping a product card should open its **Product Detail View** (see Section 3.3).
+- Tapping the filled star icon removes the item from the favorites list.
+  - The item should disappear immediately via smooth animation.
+- If no items are saved, display an empty state message such as:
+  > “Vous n'avez pas encore ajouté de favoris.”  
+  > *(“You haven’t added any favorites yet.”)*
+
+#### Example User Flow
+
+1. The user taps the ⭐ “Favoris” icon in the bottom navigation.
+2. They see four saved products: two cheeses and two wines.
+3. They scroll through the list and tap “Vin Rosé IGP Alpilles.”
+4. The app navigates to the detailed view for that wine.
+5. They return and tap the ⭐ next to “Morbier” to remove it from favorites.
+6. The item disappears from the list instantly.
 
