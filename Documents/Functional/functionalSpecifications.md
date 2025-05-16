@@ -12,6 +12,7 @@
 <summary><b>📖 Table of Contents</b></summary>
 
 - [1. Introduction](#1-introduction)
+  - [1.0.1. Glossary](#101-glossary)
   - [1.1. Project Overview](#11-project-overview)
   - [1.2. Project Definition](#12-project-definition)
     - [1.2.1. Project Context](#121-project-context)
@@ -34,13 +35,41 @@
   - [3.1. Global User Flow](#31-global-user-flow)
   - [3.2. Visual Design](#32-visual-design)
     - [3.2.1. Color Palette](#321-color-palette)
-  - [3.3. Product Detail View](#33-product-detail-view)
-  - [3.4. Homepage & Navigation](#34-homepage--navigation)
+  - [3.3. Homepage & Navigation](#33-homepage--navigation)
+  - [3.4. Product Detail View](#34-product-detail-view)
   - [3.5. Favorites Page](#35-favorites-page)
+  - [3.6. Parameters Page](#36-parameters-page)
+  - [3.7. User Experience (UX) Choices](#37-user-experience-ux-choices)
+- [4. Non-Functional Requirements](#4-non-functional-requirements)
+  - [4.1. Performance](#41-performance)
+  - [4.2. Compatibility](#42-compatibility)
+  - [4.3. Usability](#43-usability)
+  - [4.4. Localization](#44-localization)
+  - [4.5. Data Persistence](#45-data-persistence)
+  - [4.6. Availability & Hosting](#46-availability--hosting)
+  - [4.7. Accessibility](#47-accessibility)
 
 </details>
 
+
 ## 1. Introduction
+
+### 1.0.1. Glossary
+
+| Term | Definition |
+|------|------------|
+| **PoC (Proof of Concept)** | A small-scale prototype or trial version of the application created to demonstrate its feasibility and value. |
+| **Intermarché** | The French supermarket chain for which this wine and cheese pairing application is being developed. |
+| **MVP** | Minimum Viable Product — the most basic version of the app that includes only essential features required for testing and validation. |
+| **Bubble.io** | A no-code web development platform used to build and deploy this application without writing traditional code. |
+| **Pairing** | A suggested combination of a wine and a cheese (or dish), selected for compatibility in taste and experience. |
+| **Tag** | A descriptive label (e.g., “Fruité”, “Délicat”) applied to products to indicate their flavor profile or characteristics. |
+| **Mockup** | A static visual design representing the user interface, often created in tools like Figma. |
+| **Figma** | A collaborative design platform used to create wireframes, mockups, and UI prototypes for the app. |
+| **WCAG** | Web Content Accessibility Guidelines — a set of technical standards for improving digital accessibility. |
+| **QR Code** | A scannable code used to give users quick access to the app from inside the store. |
+
+
 
 ### 1.1. Project Overview
 
@@ -184,7 +213,7 @@ Antoine receives a cheese pairing that complements his wine and expands his tast
 
 ## 3. Functional Requirements
 
-### 3.1 Global User Flow
+### 3.1. Global User Flow
 
 The flowchart below provides an overview of the app’s core decision-making logic, from homepage to final recommendation.
 
@@ -230,7 +259,7 @@ The final palette ensures a clean, professional appearance while optimizing for 
 
 
 
-### 3.3 Homepage & Navigation
+### 3.3. Homepage & Navigation
 
 The homepage is the user’s first touchpoint with the app and serves as the launchpad for product discovery. It allows users to search for cheeses or wines, view best-selling items, and navigate to core features like Favorites and Settings.
 
@@ -288,7 +317,7 @@ The screen is divided into three key zones:
 3. They tap “Vins” to switch the list and view wine suggestions.
 4. They tap a wine to view more details and matching suggestions.
 
-### 3.4 Product Detail View
+### 3.4. Product Detail View
 
 This screen provides users with an in-depth look at a selected product (wine or cheese), including its characteristics, description, and pairing suggestions. It’s a key part of the user journey, especially for those making in-store decisions or exploring expert recommendations.
 
@@ -350,7 +379,7 @@ This screen provides users with an in-depth look at a selected product (wine or 
 5. They scroll horizontally to view all pairing suggestions.
 6. They tap “Camembert” to learn more about it.
 
-### 3.5 Favorites Page
+### 3.5. Favorites Page
 
 The “Favoris” page allows users to view all previously saved items — both cheeses and wines — that they marked with the ⭐ icon. It acts as a personal shortlist for users who want to revisit their selections, especially when they’re actively shopping or planning meals.
 
@@ -399,3 +428,107 @@ The “Favoris” page allows users to view all previously saved items — both 
 4. The app navigates to the detailed view for that wine.
 5. They return and tap the ⭐ next to “Morbier” to remove it from favorites.
 6. The item disappears from the list instantly.
+
+### 3.6. Parameters Page
+
+The “Paramètres” page allows users to adjust key preferences within the app. While minimal by design, it ensures that the user experience can adapt to different languages and personal needs.
+
+#### Visual Structure
+
+1. **Page Header**
+   - Title: **“Paramètres”**
+   - Simple, clean layout aligned with the rest of the app design
+
+2. **Language Selector**
+   - Two toggle buttons: **Français 🇫🇷** / **English 🇬🇧**
+   - Switching languages updates all interface labels and product descriptions instantly
+   - Language preference should be remembered across sessions (stored locally)
+
+3. **Additional Options (optional/MVP+)**
+   - **Clear Favorites**: A button that allows users to remove all items from their favorites list
+   - **App Info**: Version number, credits, or a short description of the project purpose
+
+#### Functional Behavior
+
+- Changes should apply immediately, without needing to reload the page
+- Settings are **persisted locally** (e.g., in the browser or device memory)
+- The user can return to the homepage using the bottom navigation bar at any time
+
+#### Example User Flow
+
+1. The user taps the ⚙️ “Paramètres” icon in the bottom nav.
+2. They select “English” — the UI switches to English immediately.
+3. They tap “Back to Menu” or use the navigation bar to return.
+4. The language setting remains applied across the session.
+
+> [!CAUTION]
+> The following visual will be used as a reference for the favorites page design. The language will be in French, because the mockups are sent to the client for review/feedback. The final version will be in both French and English, as per the requirements.
+
+![img](img/settings.png)
+
+### 3.7 User Experience (UX) Choices
+
+This application was designed with a strong focus on real-world usability — particularly for users browsing inside the Intermarché store, often on mobile devices, with limited time or digital experience. The following UX decisions were made to ensure smooth and intuitive navigation:
+
+#### Mobile-First & Touch-Optimized
+
+The interface was developed using a **mobile-first approach**, recognizing that most users will access the app via smartphone while shopping. All interactive zones — buttons, product cards, navigation tabs — are large and well-spaced for **thumb-based interaction**, ensuring comfort and precision. The layout avoids desktop-style hover states, relying instead on clear, tap-friendly elements and smooth screen transitions.
+
+#### No Login or Account System
+
+To minimize friction and maximize adoption, the app deliberately **does not require any login or account creation**. Users can favorite products, browse recommendations, and switch languages freely without creating an account. This allows for **immediate engagement**, especially valuable in a retail setting where time is limited and convenience is essential.
+
+#### Tag-Based Navigation
+
+Instead of complex filtering systems or dropdowns, the app uses **simple, visual tags** (e.g., “Fruité”, “Corsé”, “Onctueux”) to help users discover and compare products. This decision makes it easier for users to **quickly understand product characteristics** without needing technical wine or cheese vocabulary. Tags also support future filtering or search enhancements without overwhelming the current UI.
+
+#### Visual Familiarity Through Product Cards
+
+Product listings use **horizontal card layouts** that mirror the visual appearance of in-store labels. Each card displays the image, name, tag(s), and price in a way that is familiar to shoppers and visually scannable. This **reduces cognitive load**, allowing users to recognize items they've seen in the aisles and make faster pairing decisions.
+
+
+
+## 4. Non-Functional Requirements
+
+This section outlines the constraints and quality attributes that the application must satisfy beyond its core functionality. These requirements ensure that the app delivers a smooth, accessible, and scalable experience for all users — whether locals or tourists browsing in-store.
+
+### 4.1. Performance
+
+- The application must respond to all user interactions (button taps, navigation) within **2 seconds** on a standard mobile network (4G).
+- Search results and recommendations must load in under **3 seconds** after user input.
+- The app must be usable **offline**.
+
+### 4.2. Compatibility
+
+- The app must be fully responsive and optimized for **mobile devices**, especially smartphones, as it will be used in-store.
+- It must function on modern browsers such as **Safari**, **Chrome**, and **Edge**, with no visual or functional issues.
+- It must be accessible on both **iOS** and **Android** devices via browser.
+
+### 4.3. Usability
+
+- The interface must be designed for **touch-first interactions**, with large tappable areas, high contrast, and intuitive navigation.
+- All text should maintain high readability on small screens.
+- The UI must use **clear iconography** and minimize text reliance where possible to support users with limited language fluency.
+
+### 4.4 Localization
+
+- The app must support **French and English**.
+- All text, labels, and product descriptions must be fully translated.
+- Users can toggle their language preference via the settings page.
+
+### 4.5 Data Persistence
+
+- User preferences (e.g., language) and favorite products should be stored **locally** on the device using browser storage.
+- No account or login is required; the app functions entirely without user authentication.
+
+### 4.6 Availability & Hosting
+
+- The application must be accessible **24/7** during the testing and pilot phase.
+- It will be hosted on a no-code platform (**Bubble.io**) and deployed via a public link or QR code in the store.
+
+### 4.7 Accessibility
+
+- The app should follow **WCAG 2.1 Level AA** guidelines where feasible:
+  - Proper color contrast
+  - Alt text for icons/images
+  - Font sizes and spacing suitable for visually impaired users
