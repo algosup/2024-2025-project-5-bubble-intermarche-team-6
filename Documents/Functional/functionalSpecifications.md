@@ -31,6 +31,12 @@
     - [2.2.2. Dish to Cheese recommendation](#222-dish-to-cheese-recommendation)
     - [2.2.3. Wine to Cheese recommendation](#223-wine-to-cheese-recommendation)
 - [3. Functional Requirements](#3-functional-requirements)
+  - [3.1. Global User Flow](#31-global-user-flow)
+  - [3.2. Visual Design](#32-visual-design)
+    - [3.2.1. Color Palette](#321-color-palette)
+  - [3.3. Product Detail View](#33-product-detail-view)
+  - [3.4. Homepage & Navigation](#34-homepage--navigation)
+  - [3.5. Favorites Page](#35-favorites-page)
 
 </details>
 
@@ -192,6 +198,8 @@ The flowchart below provides an overview of the app’s core decision-making log
 To create our mockups, we used Figma, a collaborative design tool that allows for easy sharing and feedback. The mockups are designed to be visually appealing and user-friendly, with a focus on simplicity and ease of navigation.
 
 Here is the link to the Figma file: [Figma Mockups](https://www.figma.com/design/wQ7NaObzJ04TrvweCbxS5Z/Intermarch%C3%A9?node-id=0-1&t=2GPKpLDiJrA0HViY-1)
+
+---
 
 #### 3.2.1 Color Palette
 
@@ -391,4 +399,3 @@ The “Favoris” page allows users to view all previously saved items — both 
 4. The app navigates to the detailed view for that wine.
 5. They return and tap the ⭐ next to “Morbier” to remove it from favorites.
 6. The item disappears from the list instantly.
-
