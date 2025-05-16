@@ -12,6 +12,13 @@
   - [II. Plan](#ii-plan)
     - [A. Test Team](#a-test-team)
     - [B. Testing Environment \& Tools](#b-testing-environment--tools)
+  - [III. GitHub Issues \& Pull Request](#iii-github-issues--pull-request)
+    - [A. GitHub Issues](#a-github-issues)
+    - [B. Pull Request](#b-pull-request)
+  - [IV. Testing Procedures](#iv-testing-procedures)
+    - [A. Test Execution](#a-test-execution)
+      - [1. Test Cases](#1-test-cases)
+      - [2. Order of Testing](#2-order-of-testing)
 
 </details>
 
@@ -28,11 +35,16 @@
 
 ⚠️ This is a **prototype (Proof of Concept)** – strict adherence to Intermarché's official brand identity is not required.
 
----
-
 ### B. Test Objectives
 
----
+To create an efficient and reliable product, we need to have **objectives** when it comes to testing the product.
+
+We need to ensure:
+
+- The application is free of bugs that would harm the user experience (including navigation, language, etc).
+- The application is easy to use and navigate.
+- The application is accepting inputs from the user, such as cheeses, wines and dishes.
+- The application is suggesting paired dishes, wines or cheeses depending on the user input.
 
 ## II. Plan
 
@@ -40,11 +52,11 @@
 
 The following people will be on the system integration test team:
 
-| Role | Name | Level of involvement | Responsibilities |
-|------|------|----------------------|------------------|
-| Technical Leader     | Habi CAILLEAU | 5hrs  | Helps the QA to review the code and validate Pull Requests from the `dev` branch. Helps to create test cases. |
-| Project Manager      | Alexandre BOPP   | 4hrs  | Reviews all documents when a Pull Request is submitted from the `documents` branch with the Quality Assurance. Helps to create test cases. |
-| Quality Assurance    | Enzo GUILLOUCHE    | 93hrs | Reviews code and documents, creates and performs test cases, makes template for Pull Requests and Issues, makes Issues if necessary and validates Pull Requests. |
+| Role | Name | Responsibilities |
+|------|------|------------------|
+| Technical Leader     | Habi CAILLEAU | Helps the QA to review the app and validate parts to go into production. Helps to create test cases. |
+| Project Manager      | Alexandre BOPP   | Reviews all documents when a Pull Request is submitted from the `documents` branch with the Quality Assurance. Helps to create test cases. |
+| Quality Assurance    | Enzo GUILLOUCHE    | Reviews the app and documents, creates and performs test cases, makes template for Pull Requests and Issues, makes Issues if necessary and validates Pull Requests. |
 
 ### B. Testing Environment & Tools
 
@@ -67,3 +79,102 @@ And here are the **tools** used for the development and tests:
 
 - Visual Studio Code
 - Bubble
+
+---
+
+## III. GitHub Issues & Pull Request
+
+### A. GitHub Issues
+
+GitHub Issues are used to track, manage, and resolve defects or enhancements. The following process will be followed when opening an issue:
+
+1. **Issue Creation**:
+   - Each issue must have a clear and descriptive title.
+   - Provide a detailed description of the problem, including steps to reproduce it if applicable.
+   - Assign the issue to the relevant team members and add appropriate labels (e.g., bug, enhancement, documentation).
+
+2. **Issue Triage**:
+   - The QA or technical lead will review issues and prioritize them based on severity and impact.
+   - High-priority issues should be addressed before moving on to new feature development.
+
+3. **Issue Resolution**:
+   - Developers must provide comments and updates on the issue’s progress.
+   - Once fixed, the issue should be linked to the corresponding pull request.
+
+4. **Issue Closure**:
+   - After verification and testing, the issue is marked as resolved and closed by the QA.
+   - If the issue persists, it should be reopened and assigned for further investigation.
+
+Moreover, Issues **related to deliverables** have been created.
+
+They act as **milestones**: once we finish a document for instance, and it has been reviewed / merged, we can close the issue related to that specific document.
+
+<img width="750" alt="Screenshot 2025-05-12 at 10 00 45" src="https://github.com/user-attachments/assets/deff691c-591e-4130-afc6-fe491f96bf02" />
+
+Template of **document issue**:
+
+<img width="750" alt="Screenshot 2025-05-12 at 10 02 09" src="https://github.com/user-attachments/assets/370598ae-eeb0-466b-bd77-d14140715fba" />
+
+Template of **bug issue**:
+
+<img width="750" alt="Screenshot 2025-05-12 at 10 01 44" src="https://github.com/user-attachments/assets/2e788591-68b9-44d7-b0c6-85b36e704d17" />
+
+### B. Pull Request
+
+Pull requests are used to propose, review, and merge changes into the main branch. The following process must be followed when submitting a PR:
+
+1. **Pull Request Creation**:
+   - PRs must include a clear title and description summarizing the changes.
+   - Link any relevant issues that the PR addresses.
+
+2. **Review Process**:
+   - At least one reviewer (QA or technical lead) must approve the PR before merging.
+   - Reviewers should check for correctness, readability, and the absence of regressions.
+   - Any requested changes must be addressed before approval.
+
+3. **Merging**:
+   - Once approved, the developer or the reviewer can merge the PR.
+   - Squash and merge should be preferred for small changes; standard merge for larger features.
+   - Delete the feature branch after merging to keep the repository clean.
+
+4. **Post-Merge Actions**:
+   - Ensure the latest changes are pulled into local environments.
+   - Monitor production (if applicable) for unexpected issues after deployment.
+
+The adherence to coding standards is not mentioned here as developers will work on Bubble. No code will be written and commited on the repository then.
+
+Template of **PR**:
+
+<img width="750" alt="Screenshot 2025-05-12 at 10 03 54" src="https://github.com/user-attachments/assets/84c08500-38b6-4d4f-8bce-fa7d0a76dd5b" />
+
+## IV. Testing Procedures
+
+### A. Test Execution
+
+#### 1. Test Cases
+
+For each requirement, system feature, or suggestion to be tested, the tester will execute a set of pre-defined test cases.
+Each test case will have a series of actions and expected results.
+As each action is performed, the results are evaluated.
+If the observed results are equal to the expected results, a checkmark ✅ is placed in the “Pass/Fail” column.
+If the observed results differ from the expected results, a checkmark ❌ is placed in the “Pass/Fail” column.
+
+#### 2. Order of Testing
+
+The order of testing will be driven primarily by the test order. Within each test, the following order of testing will be followed:
+
+- **Test 1**: Navigation & Language
+  - A. Ensure that the application can be navigated through.
+  - B. Verify that there is no spelling errors.
+
+- **Test 2**: Input
+  - A. Ensure users can input dishes, wines and cheeses in desired fields.
+  - B. Validate inputs can be processed by the application.
+
+- **Test 3**: Process Suggestions
+  - A. Verify processing of inputs through the system.
+  - B. Confirm the correctness of suggestions and computation logic.
+
+- **Test 4**: Output Validation
+  - A. Ensure final outputs conform to expected outputs (e.g wine if users search for wines).
+  - B. Compare actual results with predefined expected values.
