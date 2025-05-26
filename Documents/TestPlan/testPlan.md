@@ -45,7 +45,7 @@ We need to ensure:
 - The application is free of bugs that would harm the user experience (including navigation, language, etc).
 - The application is easy to use and navigate.
 - The application is accepting inputs from the user, such as cheeses, wines and dishes.
-- The application is suggesting paired dishes, wines or cheeses depending on the user input.
+- The application is suggesting paired dishes, wines or cheeses relative to the user input.
 
 ## II. Plan
 
@@ -79,7 +79,7 @@ The project will be developed and the tests will be run on the following environ
 And here are the **tools** used for the development and tests:
 
 - Visual Studio Code
-- Bubble
+- Bubble.io
 
 ---
 
@@ -89,22 +89,21 @@ And here are the **tools** used for the development and tests:
 
 GitHub Issues are used to track, manage, and resolve defects or enhancements. The following process will be followed when opening an issue:
 
-1. **Issue Creation**:
-   - Each issue must have a clear and descriptive title.
-   - Provide a detailed description of the problem, including steps to reproduce it if applicable.
-   - Assign the issue to the relevant team members and add appropriate labels (e.g., bug, enhancement, documentation).
+**Issue Creation**:
+- Provide a detailed description of the problem, including steps to reproduce it if applicable.
+- Assign the issue to the relevant team members and add appropriate labels (e.g., bug, enhancement, documentation).
 
-2. **Issue Triage**:
-   - The QA or technical lead will review issues and prioritize them based on severity and impact.
-   - High-priority issues should be addressed before moving on to new feature development.
+**Issue Triage**:
+- The QA or technical lead will review issues and prioritize them based on severity and impact.
+- High-priority issues should be addressed before moving on to new feature development.
 
-3. **Issue Resolution**:
-   - Developers must provide comments and updates on the issue’s progress.
-   - Once fixed, the issue should be linked to the corresponding pull request.
+**Issue Resolution**:
+- Developers must provide comments and updates on the issue’s progress.
+- Once fixed, the issue should be linked to the corresponding pull request.
 
-4. **Issue Closure**:
-   - After verification and testing, the issue is marked as resolved and closed by the QA.
-   - If the issue persists, it should be reopened and assigned for further investigation.
+**Issue Closure**:
+- After verification and testing, the issue is marked as resolved and closed by the QA.
+- If the issue persists, it should be reopened and assigned for further investigation.
 
 Moreover, Issues **related to deliverables** have been created.
 
@@ -124,23 +123,23 @@ Template of **bug issue**:
 
 Pull requests are used to propose, review, and merge changes into the main branch. The following process must be followed when submitting a PR:
 
-1. **Pull Request Creation**:
-   - PRs must include a clear title and description summarizing the changes.
-   - Link any relevant issues that the PR addresses.
+**Pull Request Creation**:
+- PRs must include a clear description summarizing the changes.
+- Link any relevant issues that the PR addresses.
 
-2. **Review Process**:
-   - At least one reviewer (QA or technical lead) must approve the PR before merging.
-   - Reviewers should check for correctness, readability, and the absence of regressions.
-   - Any requested changes must be addressed before approval.
+**Review Process**:
+- At least one reviewer (QA or technical lead) must approve the PR before merging.
+- Reviewers should check for correctness, readability, and the absence of regressions.
+- Any requested changes must be addressed before approval.
 
-3. **Merging**:
-   - Once approved, the developer or the reviewer can merge the PR.
-   - Squash and merge should be preferred for small changes; standard merge for larger features.
-   - Delete the feature branch after merging to keep the repository clean.
+**Merging**:
+- Once approved, the developer or the reviewer can merge the PR.
+- Squash and merge should be preferred for small changes; standard merge for larger features.
+- Delete the feature branch after merging to keep the repository clean.
 
-4. **Post-Merge Actions**:
-   - Ensure the latest changes are pulled into local environments.
-   - Monitor production (if applicable) for unexpected issues after deployment.
+**Post-Merge Actions**:
+- Ensure the latest changes are pulled into local environments.
+- Monitor production (if applicable) for unexpected issues after deployment.
 
 The adherence to coding standards is not mentioned here as developers will work on Bubble. No code will be written and commited on the repository then.
 
