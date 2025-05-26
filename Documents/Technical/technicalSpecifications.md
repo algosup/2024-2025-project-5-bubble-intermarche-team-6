@@ -397,50 +397,27 @@ These enhancements prioritize continuous improvement and user-centric innovation
 
 
 
+
 ```mermaid
 graph TD
-    %% Page Structure
-    A[User Interface (Bubble.io Frontend)]
-    B[Main Group]
-
-    %% Section Groups
-    C[External APIs]
-    D[Bubble.io Backend]
-    E[External Services]
-    F[Intermarché Database]
-
-    %% Object Groups
-    G[TheMealDB]
-    H[Spooncular]
-    I[Workflows]
-    J[API Connector]
-    K[Database (Bubble)]
-    L[Caching (Redis)]
-    M[Monitoring (Sentry)]
-    N[Video Hosting (YT)]
-    O[Cheeses]
-    P[Wines]
-    Q[Inventory Status]
-
-    %% Connections
-    A --> B
-    B --> C
-    B --> D
-    B --> E
-    B --> F
-
-    C --> G
-    C --> H
-
-    D --> I
-    D --> J
-    D --> K
-
-    E --> L
-    E --> M
-    E --> N
-
-    F --> O
-    F --> P
-    F --> Q
+    %% Simplified Architecture
+    A[User Interface] --> B[External APIs]
+    A --> C[Bubble.io Backend]
+    A --> D[External Services]
+    A --> E[Intermarché Database]
+    
+    B --> F[TheMealDB]
+    B --> G[Spooncular]
+    
+    C --> H[Workflows]
+    C --> I[API Connector]
+    C --> J[Database (Bubble)]
+    
+    D --> K[Caching (Redis)]
+    D --> L[Monitoring (Sentry)]
+    D --> M[Video Hosting (YT)]
+    
+    E --> N[Cheeses]
+    E --> O[Wines]
+    E --> P[Inventory Status]
 ```
