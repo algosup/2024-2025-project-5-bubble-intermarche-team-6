@@ -420,3 +420,47 @@ graph TD
     E --> O[Wines]
     E --> P[Inventory]
 ```
+
+
+
+```mermaid
+graph TD
+    %% Core Pages
+    A[Homepage] --> B[Dish Search]
+    B --> C[Dish Details]
+    C --> D[Pairing Results]
+    D --> E[Product Pages]
+    A --> F[User Account]
+    
+    %% Secondary Pages
+    A --> G[About/Culinary Guide]
+    D --> H[Error/No Results]
+    
+    %% Modals
+    A --> I[Dish Quick View Modal]
+    F --> J[Login/Signup Modal]
+    D --> K[Rating Modal]
+    
+    %% Components
+    A -->|Hero Banner| L((Seasonal Pairings))
+    A -->|Carousel| M((Global Dishes))
+    B -->|Filters| N((Cuisine/Dietary))
+    C -->|Ingredients| O((TheMealDB Data))
+    D -->|Cards| P((Wine/Cheese))
+    E -->|Locator| Q((Inventory Status))
+```
+
+```mermaid
+graph TD
+    A[User Input] --> B[Category/Area/Ingredient]
+    B --> C[List of Meals]
+    C --> D{User Chooses Meal}
+    D --> E[Fetch Ingredients]
+    E --> F[Find Best Cheese]
+    E --> G[Find Best Wine]
+    G --> H{Wine Found?}
+    H -->|No| I[Find Wine by Ingredient]
+    H -->|Yes| J[Pairing Graph]
+    I --> J
+    F --> J
+```
