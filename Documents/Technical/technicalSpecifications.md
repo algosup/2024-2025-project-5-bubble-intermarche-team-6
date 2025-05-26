@@ -400,7 +400,7 @@ These enhancements prioritize continuous improvement and user-centric innovation
 ```mermaid
 graph TD
     %% Page Structure
-    A[User Interface<br>(Bubble.io Frontend)]
+    A[User Interface (Bubble.io Frontend)]
     B[Main Group]
 
     %% Section Groups
