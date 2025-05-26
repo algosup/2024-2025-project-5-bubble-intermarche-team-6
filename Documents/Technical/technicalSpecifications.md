@@ -400,24 +400,23 @@ These enhancements prioritize continuous improvement and user-centric innovation
 
 ```mermaid
 graph TD
-    %% Simplified Architecture
     A[User Interface] --> B[External APIs]
-    A --> C[Bubble.io Backend]
+    A --> C[Bubble Backend]
     A --> D[External Services]
-    A --> E[Intermarché Database]
+    A --> E[Intermarché DB]
     
     B --> F[TheMealDB]
     B --> G[Spooncular]
     
     C --> H[Workflows]
     C --> I[API Connector]
-    C --> J[Database (Bubble)]
+    C --> J[Bubble Database]
     
-    D --> K[Caching (Redis)]
-    D --> L[Monitoring (Sentry)]
-    D --> M[Video Hosting (YT)]
+    D --> K[Redis]
+    D --> L[Sentry]
+    D --> M[YouTube]
     
     E --> N[Cheeses]
     E --> O[Wines]
-    E --> P[Inventory Status]
+    E --> P[Inventory]
 ```
