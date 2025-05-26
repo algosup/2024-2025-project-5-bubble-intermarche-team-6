@@ -38,7 +38,7 @@ The primary objectives of the project are:
   - Display pairing rationale (e.g., *“Pinot Noir complements earthy mushroom flavors”*).  
   - Show *“Why This Works”* cards with flavor profile matches (e.g., acidity, tannin levels).  
 
----
+
 
 **2.1.2 Search Interface**  
 - **Dish Search**:  
@@ -50,7 +50,6 @@ The primary objectives of the project are:
   - **Category Filters**:  
     - Use TheMealDB’s `category.php` endpoint to populate filters (e.g., *“Seafood”*, *“Vegetarian”*).  
 
----
 
 **2.1.3 API Integrations**  
 - **TheMealDB**:  
@@ -68,8 +67,23 @@ The primary objectives of the project are:
   - **Error Handling**:  
     - If Spooncular is unavailable, default to rule-based pairings (e.g., *“Regional Matches”* from Intermarché’s database).  
 
----  
-This structure ensures dynamic, data-driven pairings while maintaining reliability through fallbacks and real-time inventory checks. API responses are optimized for speed and compliance with rate limits.  
+
+```mermaid
+graph TD
+    A[User Input] --> B[Category/Area/Ingredient]
+    B --> C[List of Meals]
+    C --> D{User Chooses Meal}
+    D --> E[Fetch Ingredients]
+    E --> F[Find Best Cheese]
+    E --> G[Find Best Wine]
+    G --> H{Wine Found?}
+    H -->|No| I[Find Wine by Ingredient]
+    H -->|Yes| J[Pairing Graph]
+    I --> J
+    F --> J
+```
+
+This diagram illustrates the user journey from input to pairing results, including fallback logic. It directly maps to the Recommendation System and API Integrations described in Sections 2.1.1 and 2.1.3.
 
 
 
@@ -118,7 +132,6 @@ This structure ensures dynamic, data-driven pairings while maintaining reliabili
   - **Fallback**:  
     - If Spooncular fails, default to Intermarché’s static pairing rules (e.g., *“Bordeaux wines with hard cheeses”*).  
 
----
 
 #### **3.2 Data Model**  
 
@@ -142,8 +155,36 @@ This structure ensures dynamic, data-driven pairings while maintaining reliabili
 - **Data Validation**:  
   - Automatically flag pairings with `Spooncular_Score < 50` for admin review.  
 
----  
-This architecture ensures seamless integration of external APIs while maintaining performance and scalability. Real-time inventory checks and fallback logic guarantee reliable user experiences.  
+
+```mermaid
+graph TD
+    A[User Interface] --> B[External APIs]
+    A --> C[Bubble Backend]
+    A --> D[External Services]
+    A --> E[Intermarché DB]
+    
+    B --> F[TheMealDB]
+    B --> G[Spooncular]
+    
+    C --> H[Workflows]
+    C --> I[API Connector]
+    C --> J[Bubble Database]
+    
+    D --> K[Redis]
+    D --> L[Sentry]
+    D --> M[YouTube]
+    
+    E --> N[Cheeses]
+    E --> O[Wines]
+    E --> P[Inventory]
+```
+
+
+This high-level architecture diagram visualizes the system components described in Sections 3.1 (Bubble.io workflows) and 3.2 (data model). It clarifies how external services, APIs, and databases interact.
+
+
+
+
 
 ### 4. **User Interface (UI/UX)**  
 #### **4.1 Screen Mockups**  
@@ -197,8 +238,38 @@ This architecture ensures seamless integration of external APIs while maintainin
   - If TheMealDB fails, show a placeholder carousel with Intermarché’s curated dishes.  
   - If `pairingText` is empty, display *“Our sommeliers recommend this pairing for its balanced flavors.”*  
 
----  
-This UI/UX update prioritizes discovery (via the global carousel) and transparency (via flavor explanations), aligning with the new API-driven architecture while maintaining Intermarché’s brand aesthetics.  
+
+```mermaid
+graph TD
+    %% Core Pages
+    A[Homepage] --> B[Dish Search]
+    B --> C[Dish Details]
+    C --> D[Pairing Results]
+    D --> E[Product Pages]
+    A --> F[User Account]
+    
+    %% Secondary Pages
+    A --> G[About/Culinary Guide]
+    D --> H[Error/No Results]
+    
+    %% Modals
+    A --> I[Dish Quick View Modal]
+    F --> J[Login/Signup Modal]
+    D --> K[Rating Modal]
+    
+    %% Components
+    A -->|Hero Banner| L((Seasonal Pairings))
+    A -->|Carousel| M((Global Dishes))
+    B -->|Filters| N((Cuisine/Dietary))
+    C -->|Ingredients| O((TheMealDB Data))
+    D -->|Cards| P((Wine/Cheese))
+    E -->|Locator| Q((Inventory Status))
+```
+
+
+This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User Experience). It shows how users navigate between core pages and modals.
+
+
 
 ### 5. **Data Management**  
 
@@ -225,7 +296,6 @@ This UI/UX update prioritizes discovery (via the global carousel) and transparen
   - Track usage via a `Spooncular_Logs` collection (timestamp, user IP, endpoint).  
   - Block requests if daily limit is reached, showing a *“Recommendations paused”* banner.  
 
----
 
 #### **5.2 Security**  
 
@@ -255,8 +325,6 @@ This UI/UX update prioritizes discovery (via the global carousel) and transparen
 - **GDPR**: Audit trails for data access/deletion requests (stored for 7 years).  
 - **PCI DSS**: Payment data (if added later) handled via Stripe.js, never stored locally.  
 
----  
-This framework ensures data freshness (via scheduled syncs) and security (via encryption/access controls), while balancing real-time API performance with reliability safeguards.  
 
 
 
@@ -287,7 +355,6 @@ This framework ensures data freshness (via scheduled syncs) and security (via en
      - Write a Python script to fetch 100 dishes via TheMealDB API and cross-check with the app’s database.  
      - Tolerable error rate: <2% (allow minor typos).  
 
----
 
 ### 7. **Deployment and Maintenance**  
 
@@ -373,8 +440,6 @@ This framework ensures data freshness (via scheduled syncs) and security (via en
 - **Q3 2025**: Introduce AR wine/cheese tasting experiences (e.g., *“See how Brie pairs visually with Merlot”*).  
 - **2026**: Expand to non-alcoholic pairings (e.g., artisanal juices, teas) for broader dietary inclusivity.  
 
----  
-These enhancements prioritize continuous improvement and user-centric innovation, ensuring Intermarché remains a leader in culinary tech. Video tutorials bridge cooking and pairing education, while feedback loops keep recommendations aligned with real-world preferences.  
 
 ### 9. **Appendices**  
 
@@ -392,75 +457,3 @@ These enhancements prioritize continuous improvement and user-centric innovation
 | **Referential Constraints** | Database rules ensuring consistency between linked data (e.g., deleting a wine removes it from pairings). |
 | **Responsive Design**       | UI adapts seamlessly to devices (mobile, desktop).                                                        |
 | **SLA**                     | Service Level Agreement guaranteeing uptime (e.g., 99.9%) and performance standards.                      |
-
-
-
-
-
-
-```mermaid
-graph TD
-    A[User Interface] --> B[External APIs]
-    A --> C[Bubble Backend]
-    A --> D[External Services]
-    A --> E[Intermarché DB]
-    
-    B --> F[TheMealDB]
-    B --> G[Spooncular]
-    
-    C --> H[Workflows]
-    C --> I[API Connector]
-    C --> J[Bubble Database]
-    
-    D --> K[Redis]
-    D --> L[Sentry]
-    D --> M[YouTube]
-    
-    E --> N[Cheeses]
-    E --> O[Wines]
-    E --> P[Inventory]
-```
-
-
-
-```mermaid
-graph TD
-    %% Core Pages
-    A[Homepage] --> B[Dish Search]
-    B --> C[Dish Details]
-    C --> D[Pairing Results]
-    D --> E[Product Pages]
-    A --> F[User Account]
-    
-    %% Secondary Pages
-    A --> G[About/Culinary Guide]
-    D --> H[Error/No Results]
-    
-    %% Modals
-    A --> I[Dish Quick View Modal]
-    F --> J[Login/Signup Modal]
-    D --> K[Rating Modal]
-    
-    %% Components
-    A -->|Hero Banner| L((Seasonal Pairings))
-    A -->|Carousel| M((Global Dishes))
-    B -->|Filters| N((Cuisine/Dietary))
-    C -->|Ingredients| O((TheMealDB Data))
-    D -->|Cards| P((Wine/Cheese))
-    E -->|Locator| Q((Inventory Status))
-```
-
-```mermaid
-graph TD
-    A[User Input] --> B[Category/Area/Ingredient]
-    B --> C[List of Meals]
-    C --> D{User Chooses Meal}
-    D --> E[Fetch Ingredients]
-    E --> F[Find Best Cheese]
-    E --> G[Find Best Wine]
-    G --> H{Wine Found?}
-    H -->|No| I[Find Wine by Ingredient]
-    H -->|Yes| J[Pairing Graph]
-    I --> J
-    F --> J
-```
