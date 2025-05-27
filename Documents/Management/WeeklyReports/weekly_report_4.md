@@ -1,6 +1,6 @@
 # Team 6 – Weekly Report: Intermarché Project
 
-## Week 2 – May 5 to May 7, 2025
+## Week 4 – May 11 to May 16, 2025
 
 | Information   | Details         |
 | ------------- | --------------- |
