@@ -1,11 +1,11 @@
 # Technical Specification Document Architecture
 
-### 1. **Introduction**  
+### 1. Introduction  
 
-#### **1.1 Project Context**  
+#### 1.1 Project Context  
 This project is commissioned by Intermarché, a leading French supermarket chain, to enhance the culinary experience of its customers by simplifying the pairing of cheeses and wines with their dishes. Cheese and wine are integral to French gastronomy, but selecting the right combinations can be challenging for both casual consumers and enthusiasts. The web application will leverage Intermarché’s existing database of cheeses and wines to provide tailored recommendations, ensuring alignment with the retailer’s product offerings. Built on Bubble.io, the platform will prioritize speed, accessibility, and ease of use, catering to users across devices.
 
-#### **1.2 Objectives**  
+#### 1.2 Objectives
 The primary objectives of the project are:  
 - **Pairing Algorithm**: Develop a data-driven recommendation system that suggests optimal cheese and wine pairings based on the user’s selected dish.
 - **User-Centric Design**: Create an intuitive interface that allows users to filter recommendations by criteria such as cheese type, wine region, flavor intensity, and dietary preferences.
@@ -14,10 +14,10 @@ The primary objectives of the project are:
 
 
 
-### 2. **Functional Requirements**  
-#### **2.1 Key Features**  
+### 2. Functional Requirements
+#### 2.1 Key Features  
 
-**2.1.1 Recommendation System (Cheese/Wine Based on Dish)**  
+##### 2.1.1 Recommendation System (Cheese/Wine Based on Dish)
 - **Mechanics**:  
   - **Spooncular Integration**:  
     - When a user selects a dish, the app extracts its name using TheMealDB’s `lookup.php?i={meal_id}` endpoint.  
@@ -40,7 +40,7 @@ The primary objectives of the project are:
 
 
 
-**2.1.2 Search Interface**  
+##### 2.1.2 Search Interface
 - **Dish Search**:  
   - **Auto-Complete**:  
     - Query TheMealDB’s `search.php?s={query}` endpoint as users type (e.g., typing *“bouill”* suggests *“Bouillabaisse”*).  
@@ -51,7 +51,7 @@ The primary objectives of the project are:
     - Use TheMealDB’s `category.php` endpoint to populate filters (e.g., *“Seafood”*, *“Vegetarian”*).  
 
 
-**2.1.3 API Integrations**  
+##### 2.1.3 API Integrations  
 - **TheMealDB**:  
   - **Scope**:  
     - Fetch full meal details via `lookup.php?i={id}` (includes YouTube tutorials, ingredient lists).  
@@ -88,11 +88,11 @@ This diagram illustrates the user journey from input to pairing results, includi
 
 
 
-### 3. **Technical Architecture**  
+### 3. Technical Architecture
 
-#### **3.1 Platform: Bubble.io**  
+#### 3.1 Platform: Bubble.io
 
-**3.1.1 Automated Workflows**  
+##### 3.1.1 Automated Workflows  
 - **Dish Selection Workflow**:  
   1. **User Selects Dish**:  
      - Trigger: User clicks a dish card (e.g., *"Coq au Vin"*) from TheMealDB-powered search results.  
@@ -110,8 +110,7 @@ This diagram illustrates the user journey from input to pairing results, includi
      - Show top 3 available pairings with `Spooncular_Score` > 80%.  
      - Add *“Alternative Pairings”* section if fewer than 3 results exist.  
 
-
-**3.1.2 API Integrations**  
+##### 3.1.2 API Integrations
 - **TheMealDB**:  
   - **Setup**:  
     - Use Bubble’s native **API Connector** with base URL `https://www.themealdb.com/api/json/v1/1/`.  
@@ -133,9 +132,9 @@ This diagram illustrates the user journey from input to pairing results, includi
     - If Spooncular fails, default to Intermarché’s static pairing rules (e.g., *“Bordeaux wines with hard cheeses”*).  
 
 
-#### **3.2 Data Model**  
+#### 3.2 Data Model
 
-**3.2.1 Collections**  
+##### 3.2.1 Collections
 - **Dishes Collection**:  
   - **New Fields**:  
     - `MealDB_ID` (String): Unique identifier from TheMealDB (e.g., *"52772"* for Coq au Vin).  
@@ -146,7 +145,7 @@ This diagram illustrates the user journey from input to pairing results, includi
     - `Spooncular_Score` (Number 0-100): Confidence level from API (e.g., *85* = strong match).  
     - `Ingredient_Matches` (List): Ingredients driving the pairing (e.g., *["mushrooms", "thyme"]*).  
 
-**3.2.2 Relationships & Optimization**  
+##### 3.2.2 Relationships & Optimization
 - **Enhanced Relationships**:  
   - `Dishes.MealDB_ID` ↔ `Pairings.Dish_ID` (ensures traceability to TheMealDB).  
   - `Pairings.Wine_IDs` ↔ `Wines.Wine_ID` (enforce referential integrity).  
@@ -186,10 +185,10 @@ This high-level architecture diagram visualizes the system components described 
 
 
 
-### 4. **User Interface (UI/UX)**  
-#### **4.1 Screen Mockups**  
+### 4.User Interface (UI/UX)
+#### 4.1 Screen Mockups
 
-**4.1.1 Homepage**  
+##### 4.1.1 Homepage
 - **Layout Updates**:  
   - **Hero Section**: Retains promotional banners (e.g., *“Seasonal Pairings”*) and includes a dynamic carousel below.  
   - **“Explore Global Dishes” Carousel**:  
@@ -206,7 +205,7 @@ This high-level architecture diagram visualizes the system components described 
 
 ---
 
-**4.1.2 Product Page**  
+##### 4.1.2 Product Page  
 - **Pairing Section Redesign**:  
   - **“Why This Pairing Works” Card**:  
     - **Content**:  
@@ -227,7 +226,7 @@ This high-level architecture diagram visualizes the system components described 
 
 ---
 
-#### **4.2 User Experience**  
+#### 4.2 User Experience 
 - **Accessibility**:  
   - **Carousel**: ARIA labels for screen readers (e.g., *“Explore Global Dishes carousel, item 1 of 5”*).  
   - **Alt Text**: Auto-generated for TheMealDB images (e.g., *“Paella with seafood and saffron rice”*).  
@@ -271,9 +270,9 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
 
 
 
-### 5. **Data Management**  
+### 5. Data Management  
 
-#### **5.1 Data Sources**  
+#### 5.1 Data Sources
 
 **TheMealDB Integration**  
 - **Daily Sync Process**:  
@@ -297,7 +296,7 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
   - Block requests if daily limit is reached, showing a *“Recommendations paused”* banner.  
 
 
-#### **5.2 Security**  
+#### 5.2 Security 
 
 **API Key Protection**  
 - **Spooncular API Key**:  
@@ -328,10 +327,10 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
 
 
 
-### 6. **Testing and Validation**  
-#### **6.1 Test Scenarios**  
+### 6. Testing and Validation 
+#### 6.1 Test Scenarios  
 
-**6.1.1 Spooncular Fallback Test**  
+##### 6.1.1 Spooncular Fallback Test
 - **Objective**: Ensure the app switches to ingredient-based recommendations when no direct pairings exist.  
 - **Steps**:  
   1. **Test Case**: Enter a dish with obscure/uncommon ingredients (e.g., *“Nettle Soup”*).  
@@ -344,7 +343,7 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
      - Use Postman to mock Spooncular’s empty response.  
      - Check logs for `Fallback_Flag = True` in the Pairings collection.  
 
-**6.1.2 TheMealDB Data Accuracy**  
+##### 6.1.2 TheMealDB Data Accuracy  
 - **Objective**: Ensure dish ingredients match TheMealDB’s API responses.  
 - **Steps**:  
   1. **Test Case**: Select 50 random dishes from the app.  
@@ -356,9 +355,9 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
      - Tolerable error rate: <2% (allow minor typos).  
 
 
-### 7. **Deployment and Maintenance**  
+### 7. Deployment and Maintenance 
 
-**7.1 Monitoring**  
+#### 7.1 Monitoring  
 - **Spooncular API Usage**:  
   - **Dashboard**: Build a Bubble.io dashboard showing:  
     - Daily API calls (updated in real-time).  
@@ -369,7 +368,7 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
 - **Logging**:  
   - Store API requests/responses in a `Spooncular_Logs` collection for audits.  
 
-**7.2 Fallback Plan**  
+#### 7.2 Fallback Plan
 - **Trigger Conditions**:  
   - Spooncular returns 5xx errors for 5+ consecutive requests.  
   - API response time exceeds 10 seconds.  
@@ -385,7 +384,7 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
   - Simulate downtime using tools like Mockoon to block Spooncular responses.  
   - Validate fallback pairings appear within 5 seconds.  
 
-**7.3 Post-Deployment Checks**  
+#### 7.3 Post-Deployment Checks
 - **Weekly**:  
   - Audit TheMealDB sync logs for failed imports.  
   - Review `Fallback_Flag` usage to identify frequent Spooncular gaps.  
@@ -393,9 +392,9 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
   - Stress-test with 5,000 concurrent users (Loader.io) to ensure scalability.  
 
 
-### 8. **Roadmap and Future Enhancements**  
+### 8. Roadmap and Future Enhancements
 
-#### **Q4 2024: User Feedback Integration**  
+#### Q4 2024: User Feedback Integration 
 **Objective**: Refine Spooncular’s pairing accuracy using crowd-sourced insights.  
 - **Features**:  
   - **User Rating System**:  
@@ -412,7 +411,7 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
 
 ---
 
-#### **Q1 2025: Video Tutorial Integration**  
+#### Q1 2025: Video Tutorial Integration
 **Objective**: Enhance user engagement with step-by-step cooking guides.  
 - **Implementation**:  
   - **Embedded Tutorials**:  
@@ -441,19 +440,24 @@ This page flow diagram aligns with Sections 4.1 (Screen Mockups) and 4.2 (User E
 - **2026**: Expand to non-alcoholic pairings (e.g., artisanal juices, teas) for broader dietary inclusivity.  
 
 
-### 9. **Appendices**  
+### 9. Appendices
 
 #### 9.1 Glossary (technical terms, cheese/wine specifics)  
 
-| Term                        | Definition                                                                                                |
-| --------------------------- | --------------------------------------------------------------------------------------------------------- |
-| **AOP Certification**       | Quality label ensuring origin and traditional production methods for cheeses/wines.                       |
-| **API**                     | Protocols enabling data exchange between systems (e.g., app and Intermarché’s database).                  |
-| **Bubble.io**               | No-code platform used to build the web app via visual workflows and pre-built components.                 |
-| **CI/CD**                   | Automated processes to integrate code changes and deploy updates efficiently.                             |
-| **Collections**             | Database tables in Bubble.io (e.g., `Cheeses`, `Wines`) storing structured product data.                  |
-| **GDPR Compliance**         | Adherence to EU regulations protecting user data privacy and consent.                                     |
-| **Pairing Algorithm**       | Rule-based system suggesting cheese-wine combinations based on dishes and user preferences.               |
-| **Referential Constraints** | Database rules ensuring consistency between linked data (e.g., deleting a wine removes it from pairings). |
-| **Responsive Design**       | UI adapts seamlessly to devices (mobile, desktop).                                                        |
-| **SLA**                     | Service Level Agreement guaranteeing uptime (e.g., 99.9%) and performance standards.                      |
+### Glossary  
+
+| **Term**               | **Definition**                                                                                 |  
+|-------------------------|-----------------------------------------------------------------------------------------------|  
+| **AOP Certification**   | Quality label ensuring cheeses/wines are produced in specific regions using traditional methods. |  
+| **API**                 | Protocol allowing software components to communicate (e.g., Spooncular ↔ Bubble.io).          |  
+| **Bubble.io**           | No-code platform for building web apps via visual workflows and databases.                    |  
+| **CI/CD**               | Automated processes to integrate code changes and deploy updates efficiently.                 |  
+| **Fallback Logic**      | System to recommend pairings by ingredients if direct matches aren’t found.                   |  
+| **Flavor Profile**      | Combination of taste, aroma, and texture characteristics (e.g., *earthy*, *citrusy*).         |  
+| **GDPR Compliance**     | EU regulation ensuring user data privacy and consent management.                             |  
+| **MealDB_ID**           | Unique identifier for dishes imported from TheMealDB API.                                     |  
+| **Redis**               | In-memory database used for caching API responses to improve performance.                     |  
+| **Spooncular_Score**    | Confidence level (0-100) for wine/cheese pairings generated by Spooncular’s AI.               |  
+| **TLS 1.3**             | Encryption protocol securing data transmitted between servers and users.                     |  
+| **Referential Integrity** | Database rules ensuring linked data (e.g., pairings ↔ wines) remain consistent.               |  
+| **Sommelier**           | Wine expert curating pairing recommendations or educational content.                          |  
