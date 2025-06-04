@@ -8,6 +8,7 @@
   - [Table Of Content](#table-of-content)
   - [I. Introduction](#i-introduction)
   - [II. Prototype version](#ii-prototype-version)
+  - [III. MVP version](#iii-mvp-version)
 
 </details>
 
@@ -48,3 +49,15 @@ The 'High' test cases must be validated first.
 | **1.18** | Product image display | Search results include product names with images. | Images are displayed correctly with associated labels. | / | / | Low | / |
 | **1.19** | Keyboard usability | Mobile user focuses on the research field. | On-screen keyboard opens, input remains visible and usable. | / | / | High | / |
 | **1.20** | Input field accessibility | Test accessibility of research field with screen readers. | Field is labeled and read correctly. | / | / | Low | / |
+
+## III. MVP version
+
+| Test Case ID | Test Case Name             | Test Case Description                                          | Expected Result                                       | Actual Result | Tested | Priority | Pass/Fail |
+| ------------ | -------------------------- | -------------------------------------------------------------- | ----------------------------------------------------- | ------------- | ------ | -------- | --------- |
+| **2.01**     | Location-based suggestions | App uses store location to suggest in-stock items.             | Suggestions are relevant to current store.            | /             | /      | Moderate | /         |
+| **2.02**     | Barcode scanner input      | User scans product barcode.                                    | App displays product info and pairing suggestions.    | /             | /      | High     | /         |
+| **2.03**     | Error recovery             | App loses internet connection during search.                   | User is shown error with retry or offline fallback.   | /             | /      | Moderate | /         |
+| **2.04**     | Search result filters      | User applies dietary filters (e.g., vegan, lactose-free).      | Results match applied filters accurately.             | /             | /      | High     | /         |
+| **2.05**     | Save dietary profile       | User sets dietary preferences.                | Preferences are saved and applied to future searches. | /             | /      | Moderate | /         |
+| **2.06**     | Navigation tab usability   | User navigates using bottom tabs (Search, Favorites, Profile). | Navigation works smoothly and highlights current tab. | /             | /      | Moderate | /         |
+| **2.07**     | Basic analytics tracking   | App logs searches and favorites anonymously.                   | Analytics logs are created and sent.                  | /             | /      | Low      | /         |
