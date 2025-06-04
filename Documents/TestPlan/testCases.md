@@ -9,6 +9,7 @@
   - [I. Introduction](#i-introduction)
   - [II. Prototype version](#ii-prototype-version)
   - [III. MVP version](#iii-mvp-version)
+  - [IV. Future Test Cases: Version 1](#iv-future-test-cases-version-1)
 
 </details>
 
@@ -61,3 +62,18 @@ The 'High' test cases must be validated first.
 | **2.05**     | Save dietary profile       | User sets dietary preferences.                | Preferences are saved and applied to future searches. | /             | /      | Moderate | /         |
 | **2.06**     | Navigation tab usability   | User navigates using bottom tabs (Search, Favorites, Profile). | Navigation works smoothly and highlights current tab. | /             | /      | Moderate | /         |
 | **2.07**     | Basic analytics tracking   | App logs searches and favorites anonymously.                   | Analytics logs are created and sent.                  | /             | /      | Low      | /         |
+
+## IV. Future Test Cases: Version 1
+
+| Test Case ID | Test Case Name                 | Test Case Description                                                      | Expected Result                                      | Actual Result | Tested | Priority | Pass/Fail |
+| ------------ | ------------------------------ | -------------------------------------------------------------------------- | ---------------------------------------------------- | ------------- | ------ | -------- | --------- |
+| **3.01**     | In-store mode detection        | App detects when user is in an Intermarché store.                          | Switches to in-store mode with optimized UI.         | /             | /      | Moderate | /         |
+| **3.02**     | Route to product               | Based on user location in-store, app shows fastest route to selected item. | Route is accurate and updates as user moves.         | /             | /      | High     | /         |
+| **3.03**     | Voice input support            | User speaks a product name or dish.                                        | App processes voice and returns appropriate results. | /             | /      | Low      | /         |
+| **3.04**     | Promotional deals integration  | App shows deals or discounts tied to search results.                       | Promotions appear inline with recommendations.       | /             | /      | Moderate | /         |
+| **3.05**     | Real-time stock API            | App checks stock in selected store.                                        | Out-of-stock products are flagged or excluded.       | /             | /      | High     | /         |
+| **3.06**     | Recommendation explanation     | App provides "why" behind pairing (e.g., cheese + wine logic).             | Tooltip or explanation is shown on request.          | /             | /      | Low      | /         |
+| **3.07**     | Multi-language support         | User switches app language (e.g., English, French, Spanish, German).               | All UI elements and results change accordingly.      | /             | /      | Moderate | /         |
+| **3.08**     | User feedback system           | User rates suggestions or reports wrong pairing.                           | Feedback is stored and acknowledged.                 | /             | /      | Low      | /         |
+| **3.09**     | Accessibility compliance audit | App is tested against WCAG 2.1 AA standards.                               | No critical accessibility violations found.          | /             | /      | High     | /         |
+| **3.10**     | AI-enhanced personalization    | Recommendations evolve with user behavior over time.                       | Suggestions become more tailored with use.           | /             | /      | Moderate | /         |
