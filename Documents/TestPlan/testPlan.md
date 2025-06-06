@@ -18,8 +18,9 @@
   - [IV. Testing Procedures](#iv-testing-procedures)
     - [A. Test Execution](#a-test-execution)
       - [1. Test Cases](#1-test-cases)
-      - [2. Order of Testing](#2-order-of-testing)
-  - [B. Pass / Fail Criteria](#b-pass--fail-criteria)
+      - [2. Order Of Testing](#2-order-of-testing)
+      - [3. Bug Life Cycle](#3-bug-life-cycle)
+    - [B. Pass / Fail Criteria](#b-pass--fail-criteria)
 
 </details>
 
@@ -159,7 +160,7 @@ As each action is performed, the results are evaluated.
 If the observed results are equal to the expected results, a checkmark ✅ is placed in the “Pass/Fail” column.
 If the observed results differ from the expected results, a checkmark ❌ is placed in the “Pass/Fail” column.
 
-#### 2. Order of Testing
+#### 2. Order Of Testing
 
 The order of testing will be driven primarily by the test order. Within each test, the following order of testing will be followed:
 
@@ -179,7 +180,28 @@ The order of testing will be driven primarily by the test order. Within each tes
   - A. Ensure final outputs conform to expected outputs (e.g wine if users search for wines).
   - B. Compare actual results with predefined expected values.
 
-## B. Pass / Fail Criteria
+#### 3. Bug Life Cycle
+
+The bug life cycle in our development process follows a clear and collaborative sequence of steps:
+
+**1. Bug Detection**:
+During testing, I actively search for unexpected behaviors, incorrect functionality, or UI/UX issues. Once a bug is identified, I gather all relevant information: steps to reproduce, environment details, screenshots, logs, and any other supporting evidence. Refer to the [GitHub Issues](#a-github-issues) part for more information.
+
+**2. Developer Notification**:
+After reporting the bug, I notify the appropriate development team or developer directly to make sure the bug is visible and prioritized according to its impact on the system and project deadlines.
+
+**3. Bug Fixing**:
+The development team investigates the root cause and applies a fix. During this stage, I remain available to provide additional context or clarification if needed. Once the fix is deployed to a testable environment, the developers notify me.
+
+**4. Bug Retesting**:
+I re-execute the test cases specifically related to the bug, verifying that the issue is no longer present. The other test cases will also be performed, to ensure the fix introduced no new problems. If the bug persists or the fix causes side effects, I reopen the bug with updated notes.
+
+**5. Bug Closure**:
+If the bug is fully resolved and the system behaves as expected, I mark the bug as "Resolved" in the [GitHub Issue](#a-github-issues). The closure is documented for traceability and future audits.
+
+This cycle ensures high quality and continuous improvement through clear communication and teamwork.
+
+### B. Pass / Fail Criteria
 
 To pass the system integration test, the Bubble Intermarché application must satisfy the following criteria across all relevant domains:
 
