@@ -35,5 +35,3 @@
 - Initial lack of clarity regarding the project scope and Git structure delayed setup.
 - It was surprising that the call for tender had to be created by us rather than being provided.
 - Limited knowledge about wine and cheese within the team made it challenging to understand the reference materials and gather relevant information.
-
-

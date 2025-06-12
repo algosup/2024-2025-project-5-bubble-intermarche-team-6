@@ -12,7 +12,7 @@
 
 ### Focused Objectives
 
-* Continue management artifacts and KPIs  
+* Continue management artifacts
 * Continue development of the main application on Bubble  
 * QA review of the Technical Specification  
 * Merge the final version of the Technical Specification  

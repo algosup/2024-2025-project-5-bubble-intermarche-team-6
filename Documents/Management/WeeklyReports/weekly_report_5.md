@@ -12,26 +12,26 @@
 
 ### Focused Objectives
 
-* Finalize the Technical Specification  
-* Advance the Test Plan and test case creation  
-* Develop the application's database structure  
-* Begin building the main application on Bubble  
+- Finalize the Technical Specification  
+- Advance the Test Plan and test case creation  
+- Develop the application's database structure  
+- Begin building the main application on Bubble  
 
 ---
 
 ### Progress Summary
 
-* Bubble application development has started from scratch  
-* Technical Specification is 90% complete  
-* Plugin integration for database connection is in place  
-* Test Plan and test cases are approximately 50% complete  
-* Management artifacts are 40% complete  
+- Bubble application development has started from scratch  
+- Technical Specification is 90% complete  
+- Plugin integration for database connection is in place  
+- Test Plan and test cases are approximately 50% complete  
+- Management artifacts are 40% complete  
 
 ---
 
 ### Challenges Encountered
 
-* The application development phase started later than planned  
-* The reduced number of developers increased the workload on each team member  
-* Maintaining consistent focus was difficult this week due to overlapping project demands  
-* Some aspects of the project remain unclear and require clarification from the client  
+- The application development phase started later than planned  
+- The reduced number of developers increased the workload on each team member  
+- Maintaining consistent focus was difficult this week due to overlapping project demands  
+- Some aspects of the project remain unclear and require clarification from the client  
